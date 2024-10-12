@@ -1,6 +1,10 @@
-# Breezit
+# BRZT TASK
 
 DEMO: https://brzt-task.vercel.app/
+
+In addition to the given tasks, I have also incorporated a couple of Angular best practices, including lazy loading, to enhance the application's performance and maintainability, as well as added some comments for better understanding of the logic, to enhance the application's performance and maintainability.
+
+Furthermore, I have made another project, F1, a public repository, which I also mentioned in the interview, so feel free to check it out if you'd like! REPOSITORY: https://github.com/nemura17/f1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
 
