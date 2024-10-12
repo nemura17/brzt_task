@@ -2,7 +2,7 @@
 
 DEMO: https://brzt-task.vercel.app/
 
-In addition to the given tasks, I have also incorporated a couple of Angular best practices, including lazy loading, to enhance the application's performance and maintainability, as well as added some comments for better understanding of the logic, to enhance the application's performance and maintainability.
+In addition to the given tasks, I have also incorporated a couple of Angular best practices, including lazy loading, to enhance the application's performance and maintainability, as well as added some comments for better understanding of the logic, to enhance the application's performance and maintainability. I also created multiple branches ('development', 'staging', 'master') to recreate a working environment.
 
 Furthermore, I have made another project, F1, a public repository, which I also mentioned in the interview, so feel free to check it out if you'd like! REPOSITORY: https://github.com/nemura17/f1
 
