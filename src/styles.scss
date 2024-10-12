@@ -1,20 +1,13 @@
-@use '@angular/material' as mat;
-
-@include mat.core();
-
-$breezit-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
-  )
-));
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
-  @include mat.all-component-themes($breezit-theme);
+  --max-width: 103.125rem;
+  --padding: 2rem;
+
+  --clr-borders: #DFDFDF;
+  --clr-error: #f15353;
+  --clr-white: #FFFFFF;
+  --clr-success: #318E31;
 }
 
 html, body { 
@@ -22,5 +15,74 @@ html, body {
 }
 
 body {
-  margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif;
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+}
+
+.container {
+  min-height: 50vh;
+  width: min(var(--max-width), 100% - var(--padding) * 2);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+button, label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  display: block;
+  margin-block: 0.3rem 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--clr-borders);
+}
+
+textarea {
+  min-height: 4rem;
+}
+
+input, select, textarea, .errorMessage {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+input[type='checkbox'] {
+  width: auto;
+  height: 1.5rem;
+}
+
+button {
+  font-family: 'DM Sans', sans-serif;
+  display: block;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  border: 1px solid var(--clr-borders);
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.errorMessage {
+  width: 100%;
+  font-weight: bold;
+  font-size: 0.8rem;
+  background-color: var(--clr-error);
+  color: var(--clr-white);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  margin-block: 0.5rem;
 }

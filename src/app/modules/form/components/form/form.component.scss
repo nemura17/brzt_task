@@ -1,0 +1,26 @@
+.authenticationContainer {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--clr-borders);
+}
+
+.backButton {
+    margin-bottom: 0.5rem;
+}
+
+.submitButton, .results {
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 0.85rem;
+    background-color: var(--clr-success);
+    color: var(--clr-white);
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.results {
+    word-wrap: break-word;
+}

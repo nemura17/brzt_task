@@ -1,1 +1,82 @@
-<p>form works!</p>
+<section class = 'flex center'>
+    <form [formGroup] = 'applicationForm' (ngSubmit) = 'onSubmit()' class = 'authenticationContainer'>
+        <!-- main page -->
+        <ng-container *ngIf = '!isSubmissionPage'>
+            <label for = 'firstName'> Jūsų vardas * </label>
+            <input type = 'text' id = 'firstName' formControlName = 'firstName' placeholder = 'Jūsų vardas'>
+            <div *ngIf = "firstName?.invalid && (firstName?.dirty || firstName?.touched) && getErrorMessages('firstName')">
+                <div class = 'errorMessage'> {{ getErrorMessages('firstName') }} </div>
+            </div>
+    
+            <label for = 'lastName'> Jūsų pavardė * </label>
+            <input type = 'text' id = 'lastName' formControlName = 'lastName' placeholder = 'Jūsų pavardė'>
+            <div *ngIf = "lastName?.invalid && (lastName?.dirty || lastName?.touched) && getErrorMessages('lastName')">
+                <div class = 'errorMessage'> {{ getErrorMessages('lastName') }} </div>
+            </div>
+    
+            <label for = 'email'> Jūsų elektroninis paštas * </label>
+            <input type = 'email' id = 'email' formControlName = 'email' placeholder = 'Jūsų elektroninis paštas'>
+            <div *ngIf = "email?.invalid && (email?.dirty || email?.touched) && getErrorMessages('email')">
+                <div class = 'errorMessage'> {{ getErrorMessages('email') }} </div>
+            </div>   
+            
+            <label for = 'isJobSearching'> Ar ieškote darbo? </label>
+            <input type = 'checkbox' id = 'isJobSearching' formControlName = 'isJobSearching' (change) = 'onJobSearchingValueChange()' />
+    
+            <label for = 'expertiseLevel'> Kokio lygio specialistas esate? </label>
+            <select id = 'expertiseLevel' formControlName = 'expertiseLevel' (change) = 'onExpertiseLevelChange($event)'>
+                <option value = ''></option>
+                <option *ngFor = 'let expertiseLevel of expertiseLevels' [value] = 'expertiseLevel.value'> {{ expertiseLevel.description }} </option>
+            </select>
+    
+            <!-- selectedExpertiseLevel == 'junior' -->
+            <ng-container *ngIf = 'selectedExpertiseLevel == expertiseLevels[0].value'>
+                <label for = 'calculationResult'> 2 + 2 * </label>
+                <input type = 'number' id = 'calculationResult' formControlName = 'calculationResult' placeholder = '2 + 2'>  
+                <div *ngIf = "calculationResult?.invalid && (calculationResult?.dirty || calculationResult?.touched) && getErrorMessages('calculationResult')">
+                    <div class = 'errorMessage'> {{ getErrorMessages('calculationResult') }} </div>
+                </div>
+            </ng-container>
+    
+            <!-- selectedExpertiseLevel == 'mid' -->
+            <ng-container *ngIf = 'selectedExpertiseLevel == expertiseLevels[1].value'>
+                <label for = 'description'> Apibūdinkite save nenaudodami A raidžių * </label>
+                <textarea id = 'description' formControlName = 'description'></textarea>
+                <div *ngIf = "description?.invalid && (description?.dirty || description?.touched) && getErrorMessages('description')">
+                    <div class = 'errorMessage'> {{ getErrorMessages('description') }} </div>
+                </div>
+            </ng-container>
+    
+            <!-- selectedExpertiseLevel == 'senior' -->
+            <ng-container *ngIf = 'selectedExpertiseLevel == expertiseLevels[2].value'>
+                <button type = 'button' (click) = 'toggleSubmissionPage()'> Kitas </button>
+            </ng-container>
+        </ng-container>
+
+        <!-- a page is shown once the user's selected expertise level is 'senior' and he clicks the button called 'Kitas' -->
+        <ng-container *ngIf = 'isSubmissionPage'>
+            <button type = 'button' class = 'backButton' (click) = 'toggleSubmissionPage()'> Grįžti </button>
+
+            <ng-container *ngIf = 'isJobSearching?.value'>
+                <h4> Aplikacija pateikta! </h4>
+            </ng-container>
+
+            <ng-container *ngIf = '!isJobSearching?.value'>
+                <label for = 'coverLetter'> Motyvacinis laiškas * </label>
+                <textarea id = 'coverLetter' formControlName = 'coverLetter'></textarea>
+                <div *ngIf = "coverLetter?.invalid && coverLetter?.touched && getErrorMessages('coverLetter')">
+                    <div class = 'errorMessage'> {{ getErrorMessages('coverLetter') }} </div>
+                </div>
+            </ng-container>
+
+            <button class = 'submitButton' type = 'submit' [disabled] = 'applicationForm.invalid'> Pateikti aplikaciją </button>
+        </ng-container>
+    </form>
+</section>
+
+<!-- a section to display JSON data of the applicationForm -->
+<ng-container *ngIf = 'jsonData'>
+    <section class = 'results'>
+        {{ jsonData }}
+    </section>
+</ng-container>
