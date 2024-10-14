@@ -6,6 +6,8 @@ In addition to the given tasks, I have also incorporated a couple of Angular bes
 
 Furthermore, I have made another project, F1, a public repository, which I also mentioned in the interview, so feel free to check it out if you'd like! REPOSITORY: https://github.com/nemura17/f1
 
+Regarding Angular Material, as I mentioned, I haven’t used it much, so I approached the task in my usual way. However, I’m committed to learning the framework so I can incorporate myself more effectively into the working environment.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
 
 ## Development server
